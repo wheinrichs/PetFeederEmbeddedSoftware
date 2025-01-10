@@ -1,0 +1,13 @@
+[Unit]
+Description=Cloudflare Tunnel
+After=network.target
+
+[Service]
+ExecStartPre=/bin/sleep 30
+ExecStart=/usr/local/bin/cloudflared tunnel run
+Restart=on-failure
+User=winstonheinrichs
+Environment=HOME=/home/winstonheinrichs
+
+[Install]
+WantedBy=multi-user.target
