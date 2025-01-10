@@ -9,11 +9,12 @@ import time
 import subprocess
 from picamera2.encoders import H264Encoder
 from picamera2.outputs import FileOutput, FfmpegOutput
-import queue
+from dotenv import load_dotenv
 
+load_dotenv()
 app = Flask(__name__)
 
-SECRET_KEY = 'this is top secret winston'
+SECRET_KEY = os.getenv("SECRET_KEY")
 
 # Picamera2 Initialization
 picam2 = Picamera2()
