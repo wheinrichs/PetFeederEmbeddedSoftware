@@ -2,9 +2,14 @@ from pymongo import MongoClient
 import time
 from datetime import datetime
 import RPi.GPIO as gpio
+import os
+from dotenv import load_dotenv
 
-MONGO_CLIENT =  "mongodb+srv://PetFeederAdmin:3gqj7*YcT.HssEw9RB@atlascluster.72pxy.mongodb.net/?retryWrites=true&w=majority&appName=AtlasCluster"
+load_dotenv()
+
 ACCOUNT_ID = "66fc7556e4c49981b7d47681"
+MONGO_CLIENT = os.getenv("MONGO_CLIENT")
+
 
 client = MongoClient(MONGO_CLIENT)
 db=client["test"]
